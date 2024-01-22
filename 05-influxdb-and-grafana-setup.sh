@@ -34,4 +34,10 @@ cat /usr/local/src/influxdb-proxmox-pass
 
 influx setup --username 'proxmox' --password '$ZPASSVPOP' --org 'proxmox' --bucket 'proxmox' --force
 influx user password --name 'proxmox' --password "$ZPASSVPOP"
+
+ZTOKEN=`influx auth create --user 'proxmox' --org 'proxmox' --all-access --json | grep -oP '"token": "\K[^"]+'`
+echo "$ZTOKEN" > /usr/local/src/influxdb-proxmox-token
+echo "Token for Proxmox Metric Server in /usr/local/src/influxdb-proxmox-token"
+echo "Use Port 8086 with HTTP option , instead of 8089 UDP"
+cat /usr/local/src/influxdb-proxmox-token
 ##
