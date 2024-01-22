@@ -23,4 +23,15 @@ apt -y install influxdb2 telegraf grafana
 ##back to main folder from /tmp
 cd -
 
+systemctl restart influxdb influxd
+systemctl start grafana-server
+systemctl enable --now -q grafana-server.service
+
+ZPASSVPOP=`pwgen -c -1 8`
+echo $ZPASSVPOP > /usr/local/src/influxdb-proxmox-pass
+echo "Admin password in /usr/local/src/influxdb-proxmox-pass"
+cat /usr/local/src/influxdb-proxmox-pass
+
+influx setup --username 'proxmox' --password '$ZPASSVPOP' --org 'proxmox' --bucket 'proxmox' --force
+influx user password --name 'proxmox' --password "$ZPASSVPOP"
 ##
