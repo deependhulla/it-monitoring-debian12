@@ -29,6 +29,15 @@ Now on Debian Linux Servers downlaod the Pacakage and install agent from : https
 ## Change Server & ServerActive in Client/Agent side with server IP and restart  zabbix-agent
 sed -i "s/Server=127.0.0.1/Server=192.168.30.123/" /etc/zabbix/zabbix_agentd.conf
 sed -i "s/ServerActive=127.0.0.1/ServerActive=192.168.30.123/" /etc/zabbix/zabbix_agentd.conf
+sed -i "s/Hostname=Zabbix server/Hostname=dvdpc.deepen.in/" /etc/zabbix/zabbix_agentd.conf
+
 
 #systemctl restart zabbix-agent
+
+
+######
+Now Login to Zabbix System
+
+Monotoring --> Discovery --> search "Local Network" in Discovery rule , and click "Apply"
+And Check for Discoery --> Host ..with Agent its ready.
 
