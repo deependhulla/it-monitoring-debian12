@@ -57,7 +57,8 @@ apt -y install vim chrony openssh-server screen net-tools git mc postfix sendema
 sudo wget curl ethtool iptraf-ng traceroute telnet mariadb-server pwgen certbot \
 arping dnsutils make cmake dos2unix ethtool sudo iptables postfix iptables-persistent python3-certbot \
 build-essential rsyslog gnupg2 zip rar unrar catdoc unzip tar imagemagick ftp python3-certbot-apache \
-poppler-utils tnef whois rsync automysqlbackup apache2 imagemagick cifs-utils \
+apt-transport-https software-properties-common  poppler-utils tnef whois rsync automysqlbackup \
+elinks apache2 imagemagick cifs-utils \
 libnet-dns-perl libmailtools-perl php-mail-mime libapache2-mod-php php-common php-redis \
 php-gd php-imagick php-imap php-intl php-ldap php-mailparse php-memcached php-cli php-mysql \
 php-zip php php-apcu php-bcmath php-curl php-gd php-igbinary 7zip php-mbstring \
