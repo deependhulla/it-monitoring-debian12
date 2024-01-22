@@ -24,7 +24,10 @@ zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-charact
 
 echo "set global log_bin_trust_function_creators = 0" | mysql -uroot
 
-/bin/cp -pR /usr/share/zabbix/conf/zabbix.conf.php.example /etc/zabbix/web/zabbix.conf.php
+###/bin/cp -pR /usr/share/zabbix/conf/zabbix.conf.php.example /etc/zabbix/web/zabbix.conf.php
+/bin/cp -pR extra-files/zabbix.conf.php /etc/zabbix/web/zabbix.conf.php
+sed -i -e "s/aiNi9ie8/$MYSQLPASSVPOP/" /etc/zabbix/web/zabbix.conf.php
+
 
 ZPASSVPOP=`pwgen -c -1 8`
 echo $ZPASSVPOP > /usr/local/src/zabbix-Admin-pass
