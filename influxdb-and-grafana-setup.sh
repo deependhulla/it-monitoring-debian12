@@ -1,16 +1,26 @@
 #!/bin/bash
 
-#export LANG=C
-#export LC_CTYPE=en_US.UTF-8
-#export LANGUAGE=en_US.UTF-8
-#export LC_ALL=en_US.UTF-8
+export LANG=C
+export LC_CTYPE=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 apt-get install -y apt-transport-https software-properties-common wget
 
+cd /tmp/
+wget -q https://repos.influxdata.com/influxdata-archive_compat.key
+echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c && cat influxdata-archive_compat.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg > /dev/null
+echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main' > /etc/apt/sources.list.d/influxdata.list
 
-mkdir -p /etc/apt/keyrings/ 2./dev/null
+
+mkdir -p /etc/apt/keyrings/ 2>/dev/null
 wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/grafana.gpg > /dev/null
-echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" > /etc/apt/sources.list.d/grafana.list
 
 apt update 
 apt -y install influxdb2 telegraf grafana
+
+##back to main folder from /tmp
+cd -
+
+##
