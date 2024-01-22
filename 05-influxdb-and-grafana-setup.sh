@@ -40,4 +40,21 @@ echo "$ZTOKEN" > /usr/local/src/influxdb-proxmox-token
 echo "Token for Proxmox Metric Server in /usr/local/src/influxdb-proxmox-token"
 echo "Use Port 8086 with HTTP option , instead of 8089 UDP"
 cat /usr/local/src/influxdb-proxmox-token
+
+/bin/cp  extra-files/grafana.ini /etc/grafana/
+
+systemctl daemon-reload
+systemctl stop grafana-server
+systemctl start grafana-server
+
+GPASSVPOP=`pwgen -c -1 8`
+echo $GPASSVPOP > /usr/local/src/grafana-proxmox-pass
+echo "Admin password in /usr/local/src/grafana-proxmox-pass"
+cat /usr/local/src/grafana-proxmox-pass
+grafana-cli admin reset-admin-password "$GPASSVPOP"
+
+grafana-cli plugins install grafana-clock-panel 1>/dev/null 2>/dev/null
+grafana-cli plugins install blackmirror1-singlestat-math-panel  1>/dev/null 2>/dev/null
+grafana-cli plugins install alexanderzobnin-zabbix-appi   1>/dev/null 2>/dev/null
+systemctl restart grafana-server
 ##

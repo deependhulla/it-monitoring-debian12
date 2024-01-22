@@ -1,0 +1,11 @@
+{
+  "name": "InfluxDB",
+  "type": "influxdb",
+  "access": "proxy",
+  "url": "http://localhost:8086",
+  "password": "eiqu6AhK",
+  "user": "proxmox",
+  "database": "proxmox",
+  "basicAuth": false,
+  "isDefault": true
+}
