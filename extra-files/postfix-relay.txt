@@ -1,0 +1,21 @@
+Quick parameters for configiring local postfix to relay via online smtp and auth
+example :
+
+in /etc/postfix/main.cf
+relayhost = [onlinesmtp.abc.com]:587
+smtp_sasl_password_maps = hash:/etc/postfix/relay_passwd
+## this value is normally not there in main.cf
+smtp_sasl_auth_enable = yes
+smtpd_sasl_auth_enable = yes
+
+in /etc/postfix/relay_passwd
+[onlinesmtp.abc.com]:587 onlinesmtp@abc.com:yourpasshere
+
+
+inet_protocols = ipv4
+smtp_use_tls=yes
+relayhost = [smtp.office365.com]:587
+smtp_sasl_password_maps = hash:/etc/postfix/relay_passwd
+smtp_sasl_auth_enable = yes
+smtp_sasl_security_options = noanonymous
+smtp_generic_maps = hash:/etc/postfix/mapfrom
