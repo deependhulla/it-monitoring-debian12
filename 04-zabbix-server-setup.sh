@@ -33,3 +33,8 @@ cat /usr/local/src/zabbix-Admin-pass
 
 ZPASSX=`htpasswd -bnBC 10 zabbix $ZPASSVPOP | tr -d '\n'| sed s/zabbix://g`
 echo "update zabbix.users set passwd=('$ZPASSX')  where username='Admin';" | mysql -uroot
+
+/bin/cp extra-files/index.html /var/www/html/
+
+systemctl restart zabbix-server zabbix-agent apache2
+systemctl enable zabbix-server zabbix-agent apache2 
