@@ -53,6 +53,8 @@ echo "Admin password in /usr/local/src/grafana-proxmox-pass"
 cat /usr/local/src/grafana-proxmox-pass
 grafana-cli admin reset-admin-password "$GPASSVPOP"
 
+systemctl restart grafana-server
+
 grafana-cli plugins install grafana-clock-panel 1>/dev/null 2>/dev/null
 grafana-cli plugins install blackmirror1-singlestat-math-panel  1>/dev/null 2>/dev/null
 grafana-cli plugins install alexanderzobnin-zabbix-appi   1>/dev/null 2>/dev/null
