@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## get tunned config
+/bin/cp -p extra-files/50-server.cnf /etc/mysql/mariadb.conf.d/
 
 sed -i "s/LimitNOFILE=32768/LimitNOFILE=62768/"   /usr/lib/systemd/system/mariadb.service
 systemctl daemon-reload
