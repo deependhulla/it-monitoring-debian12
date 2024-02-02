@@ -7,5 +7,4 @@ and update Organization as proxmox , Deafault bucket as proxmox and token from /
 
 Than Add Dasboards
 https://grafana.com/grafana/dashboards/19119-proxmox-ve-cluster-flux/
-https://grafana.com/grafana/dashboards/12914-proxmox-ve-storages/
 
