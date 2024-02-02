@@ -1,0 +1,11 @@
+
+Default user : admin and password admin ...change if not done via script
+Admin Password : /usr/local/src/grafana-proxmox-pass
+
+Add Data Source InfluxDB --> type FLUX --> ad http://localhost:8086 .. disable bassic auth.
+and update Organization as proxmox , Deafault bucket as proxmox and token from /usr/local/src/influxdb-proxmox-token 
+
+Than Add Dasboards
+https://grafana.com/grafana/dashboards/19119-proxmox-ve-cluster-flux/
+https://grafana.com/grafana/dashboards/12914-proxmox-ve-storages/
+

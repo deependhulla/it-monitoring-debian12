@@ -58,5 +58,6 @@ systemctl restart grafana-server
 grafana-cli plugins install grafana-clock-panel 1>/dev/null 2>/dev/null
 grafana-cli plugins install blackmirror1-singlestat-math-panel  1>/dev/null 2>/dev/null
 grafana-cli plugins install alexanderzobnin-zabbix-appi   1>/dev/null 2>/dev/null
+grafana-cli plugins install grafana-piechart-panel 1>/dev/null 2>/dev/null
 systemctl restart grafana-server
 ##

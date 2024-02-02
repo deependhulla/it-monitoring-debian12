@@ -1,0 +1,12 @@
+http://192.168.30.123:8086/ for management with proxmox as username and password /usr/local/src/influxdb-proxmox-pass
+
+in Proxmox --Dashboard--Metric Server --> Add-->InfluxDB
+Name: influx-30-123
+Server : 192.168.30.123
+Port : 8086
+Protocol : http
+Token : (/usr/local/src/influxdb-proxmox-token)
+Click OK.
+
+
+https://www.linuxsysadmins.com/monitoring-proxmox-with-grafana/
