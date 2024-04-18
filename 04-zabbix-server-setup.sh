@@ -5,7 +5,7 @@ wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix
 dpkg -i /tmp/zabbix-release_6.4-1+debian12_all.deb
 apt update
 apt -y upgrade
-apt -y install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent
+apt -y install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent zabbix-web-service
 
 
 MYSQLPASSVPOP=`pwgen -c -1 8`
