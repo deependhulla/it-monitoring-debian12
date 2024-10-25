@@ -1,8 +1,10 @@
 #!/bin/bash
 
-wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb -O /tmp/zabbix-release_6.4-1+debian12_all.deb
 
-dpkg -i /tmp/zabbix-release_6.4-1+debian12_all.deb
+wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest+debian12_all.deb -O /tmp/zabbix-release_latest+debian12_all.deb 
+
+dpkg -i /tmp/zabbix-release_latest+debian12_all.deb
+
 apt update
 apt -y upgrade
 apt -y install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent zabbix-web-service

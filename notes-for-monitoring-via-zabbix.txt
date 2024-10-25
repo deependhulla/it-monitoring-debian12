@@ -18,9 +18,15 @@ Now under "Operations" multiple Add
 Finally Add Button to create the "New action"
 
 
-Now on Debian Linux Servers downlaod the Pacakage and install agent from : https://www.zabbix.com/download
-#wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb
-#dpkg -i zabbix-release_6.4-1+debian12_all.deb
+Now on Debian 12 Linux Servers downlaod the Pacakage and install agent from : https://www.zabbix.com/download
+
+## in need agent 2 ...read the comparision
+https://www.zabbix.com/documentation/current/en/manual/appendix/agent_comparison
+
+#cd /tmp/
+#wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest+debian12_all.deb
+#dpkg -i zabbix-release_latest+debian12_all.deb
+
 #apt update
 #apt install zabbix-agent
 #systemctl enable zabbix-agent
